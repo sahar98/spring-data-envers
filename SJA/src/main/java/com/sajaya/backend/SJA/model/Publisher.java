@@ -15,15 +15,14 @@ import java.util.List;
 @Data
 @Entity
 @Table
-//@AuditTable(value = "Publisher_AUD")
+@AuditTable(value = "Publisher_AUD")
 @Audited
-//@EntityListeners(AuditListener.class)
+@EntityListeners(AuditListener.class)
 public class Publisher {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "publisherSeq")
-    @SequenceGenerator(name = "publisherSeq", sequenceName = "publisher_sequence", allocationSize = 1)
+
     private Long id;
     @NotBlank(message = "Title cannot be blank")
     @Size(max = 10, message = "Title cannot exceed 10 characters")
@@ -49,6 +48,6 @@ public class Publisher {
     //@Audited
     private Membership membership;
 
-    @Version Long version;
+  //  @Version Long version;
 
 }

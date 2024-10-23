@@ -1,9 +1,11 @@
 package com.sajaya.backend.SJA.api;
 
+import com.sajaya.backend.SJA.model.DocumentExpirationInfoEntity;
 import com.sajaya.backend.SJA.model.Publisher;
+import com.sajaya.backend.SJA.repository.DocRepository;
 import com.sajaya.backend.SJA.repository.fetchutils.publisherComplete;
 import com.sajaya.backend.SJA.service.PublisherService;
-import com.sajaya.backend.SJA.service.dtos.PublisherDto;
+import com.sajaya.backend.SJA.service.PublisherServiceImp;
 import com.sajaya.backend.SJA.service.dtos.PublisherResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name="publisher")
 public class publisherController {
 final PublisherService publisherService;
-    private final com.sajaya.backend.SJA.service.publisherServiceImp publisherServiceImp;
+    private final PublisherServiceImp publisherServiceImp;
+private final DocRepository  docRepository;
 
 
 /*    @Operation(description = "Create GradeLock for EducationalClass.")
@@ -31,6 +34,25 @@ final PublisherService publisherService;
 
               return publisherServiceImp.savePublisher(publisherDto);
     }*/
+
+
+@Operation(description = "Create GradeLock for EducationalClass.")
+@PostMapping("/publisher/savePublisher")
+PublisherResponseDto save(@RequestBody @Valid Publisher publisherDto) {
+    return publisherServiceImp.savePublisher(publisherDto);
+}
+
+
+    @PostMapping("/publisher/sample")
+    void saveSample(@RequestBody DocumentExpirationInfoEntity d) {
+         docRepository.save(d);
+}
+
+    @PutMapping("/publisher/sample")
+    void eSample(@RequestBody DocumentExpirationInfoEntity d) {
+        docRepository.save(d);
+    }
+
 
     @Operation(description = "Create GradeLock for EducationalClass.")
     @PutMapping("/publisher/EditPublisher")

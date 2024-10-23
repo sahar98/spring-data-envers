@@ -9,11 +9,11 @@ import com.sajaya.backend.SJA.service.dtos.PublisherResponseDto;
 import org.springframework.stereotype.Service;
 
 @Service
-public class publisherServiceImp implements PublisherService{
+public class PublisherServiceImp implements PublisherService{
   final PublisherRepository publisherRepository;
     private final PublisherMapper publisherMapper;
 
-    public publisherServiceImp(PublisherRepository publisherRepository, PublisherMapper publisherMapper) {
+    public PublisherServiceImp(PublisherRepository publisherRepository, PublisherMapper publisherMapper) {
         this.publisherRepository = publisherRepository;
         this.publisherMapper = publisherMapper;
     }
