@@ -74,7 +74,7 @@ public class publisherController {
         return publisherService.findByLastName(lastName);
     }
 
-    @GetMapping("/publisher/getversion")
+    @GetMapping("/publisher/getVersion")
     List<Object[]> getVersion(@RequestParam Long id) {
 
     return  publisherAuditService.printPublisherChangeLog(id);
