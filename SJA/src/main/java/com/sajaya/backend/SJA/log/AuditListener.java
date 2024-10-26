@@ -2,10 +2,16 @@ package com.sajaya.backend.SJA.log;
 
 import com.sajaya.backend.SJA.model.Publisher;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PostUpdate;
 import jakarta.persistence.PreUpdate;
+import org.hibernate.envers.AuditReader;
+import org.hibernate.envers.AuditReaderFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import java.util.List;
 
 @Component
 public class AuditListener
@@ -15,8 +21,8 @@ public class AuditListener
 
 
 
-    @PreUpdate
-    public void logBeforeUpdate(Object entity) {
+ //   @PreUpdate
+  /*  public void logBeforeUpdate(Object entity) {
         if (entity instanceof Publisher) {
             Publisher oldEntity = (Publisher) entity;
             EntityManager entityManager = SpringContext.getBean(EntityManager.class);
@@ -29,7 +35,7 @@ public class AuditListener
             }
         }
 
-    }
+    }*/
 
     Publisher fetchOldEntity(Long id) {
         try {
