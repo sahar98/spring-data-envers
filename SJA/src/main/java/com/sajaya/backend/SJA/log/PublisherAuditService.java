@@ -69,11 +69,10 @@ public class PublisherAuditService {
         AuditQuery q = auditReader.createQuery()
                 .forRevisionsOfEntity(Publisher.class, false, true)
                 .add(AuditEntity.id().eq(publisherId))
-                .addProjection(AuditEntity.revisionType())
-               .addProjection(AuditEntity.revisionProperty("timestamp"))
+           //     .addProjection(AuditEntity.revisionType())
+             //  .addProjection(AuditEntity.revisionProperty("timestamp"))
 
                 ;
-        q.add(AuditEntity.relatedId("mainId").eq(publisherId));
         List<Object[]> results = q.getResultList();
 /*        for (Object[] revisionData : results) {
             // Cast the results correctly

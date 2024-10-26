@@ -24,9 +24,9 @@ public class PublisherServiceImp implements PublisherService{
     }
 
     @Override
-    public PublisherResponseDto savePublisher(Publisher publisherDto) {
-        Publisher save = publisherRepository.save(publisherDto);
-        return publisherMapper.mapToResponseDto(save);
+    public Publisher savePublisher(Publisher publisherDto) {
+        return publisherRepository.save(publisherDto);
+      //  return publisherMapper.mapToResponseDto(save);
     }
 
 

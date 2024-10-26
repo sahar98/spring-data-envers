@@ -22,6 +22,8 @@ public class Publisher {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "publisherSeq")
+    @SequenceGenerator(name = "publisherSeq", sequenceName = "publisher_sequence", allocationSize = 1)
 
     private Long id;
  /*   @NotBlank(message = "Title cannot be blank")

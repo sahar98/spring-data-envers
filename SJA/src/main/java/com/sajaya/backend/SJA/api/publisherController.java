@@ -44,7 +44,7 @@ public class publisherController {
 
     @Operation(description = "Create GradeLock for EducationalClass.")
     @PostMapping("/publisher/savePublisher")
-    PublisherResponseDto save(@RequestBody @Valid Publisher publisherDto) {
+    Publisher save(@RequestBody @Valid Publisher publisherDto) {
         publisherDto.setLast_modify(new Timestamp(System.nanoTime()));
         return publisherServiceImp.savePublisher(publisherDto);
     }
@@ -64,7 +64,7 @@ public class publisherController {
 
     @Operation(description = "Create GradeLock for EducationalClass.")
     @PutMapping("/publisher/EditPublisher")
-    PublisherResponseDto edit(@RequestBody Publisher publisherDto) {
+    Publisher edit(@RequestBody Publisher publisherDto) {
         publisherDto.setLast_modify(new Timestamp(System.nanoTime()));
         return publisherServiceImp.savePublisher(publisherDto);
     }
