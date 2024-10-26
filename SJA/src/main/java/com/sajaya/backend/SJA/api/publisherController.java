@@ -75,7 +75,8 @@ public class publisherController {
     }
 
     @GetMapping("/publisher/getversion")
-    List<Object[]> getversion(@RequestParam Long id) {
+    List<Object[]> getVersion(@RequestParam Long id) {
+
     return  publisherAuditService.printPublisherChangeLog(id);
     }
 }
