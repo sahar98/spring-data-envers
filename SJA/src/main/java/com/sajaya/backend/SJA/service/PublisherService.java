@@ -8,6 +8,6 @@ public interface PublisherService {
 
     publisherComplete findByLastName(String lastName);
 
-    PublisherDto savePublisher(Publisher publisherDto);
+    Publisher savePublisher(Publisher publisherDto);
 
 }
